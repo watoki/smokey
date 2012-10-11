@@ -1,6 +1,6 @@
 {
     "name": "rtens/smokey",
-    "description": "Simpley runtime event dispatcher for PHP",
+    "description": "Simple runtime event dispatcher for PHP",
     "keywords": ["event", "event dispatcher", "watoki"],
     "homepage": "http://github.com/rtens/smokey",
     "type": "library",
