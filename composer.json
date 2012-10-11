@@ -1,0 +1,23 @@
+{
+    "name": "rtens/smokey",
+    "description": "Simpley runtime event dispatcher for PHP",
+    "keywords": ["event", "event dispatcher", "watoki"],
+    "homepage": "http://github.com/rtens/smokey",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nikolas Martens",
+            "email": "Nikolas.M@rtens.org",
+            "homepage": "http://rtens.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "rtens": "src/"
+        }
+    }
+}
