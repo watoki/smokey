@@ -20,5 +20,6 @@
             "spec\\rtens\\smokey": "",
             "rtens\\smokey": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
