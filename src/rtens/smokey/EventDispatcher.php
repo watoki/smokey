@@ -10,6 +10,8 @@ class EventDispatcher {
      */
     private $listeners;
 
+    private static $matchingsCache = array();
+
     function __construct() {
         $this->listeners = array();
     }
@@ -38,15 +40,28 @@ class EventDispatcher {
     }
 
     private function isEventMatching($event, $className) {
+        $eventName = get_class($event);
+
+        if ($eventName == $className) {
+            return true;
+        }
+
+        $cacheKey = $eventName . $className;
+        if (isset(self::$matchingsCache[$cacheKey])) {
+            return self::$matchingsCache[$cacheKey];
+        }
+
         $classRefl = new \ReflectionClass($event);
         do {
             if ($classRefl->getName() == $className) {
+                self::$matchingsCache[$cacheKey] = true;
                 return true;
             }
 
             $classRefl = $classRefl->getParentClass();
         } while ($classRefl);
 
+        self::$matchingsCache[$cacheKey] = false;
         return false;
     }
 }
