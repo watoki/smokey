@@ -1,5 +1,5 @@
 <?php
-namespace rtens\smokey;
+namespace watoki\smokey;
 
 class EventDispatcher {
 

@@ -1,8 +1,8 @@
 {
-    "name": "rtens/smokey",
+    "name": "watoki/smokey",
     "description": "Simple runtime event dispatcher for PHP",
     "keywords": ["event", "event dispatcher", "watoki"],
-    "homepage": "http://github.com/rtens/smokey",
+    "homepage": "http://github.com/watoki/smokey",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -17,8 +17,8 @@
     },
     "autoload": {
         "psr-0": {
-            "spec\\rtens\\smokey": "",
-            "rtens\\smokey": "src/"
+            "spec\\watoki\\smokey": "",
+            "watoki\\smokey": "src/"
         }
     },
     "minimum-stability": "dev"

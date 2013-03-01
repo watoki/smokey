@@ -1,9 +1,9 @@
 <?php
-namespace rtens\smokey;
+namespace watoki\smokey;
 
-use rtens\smokey\EventDispatcher;
-use rtens\collections\Map;
-use rtens\collections\Liste;
+use watoki\smokey\EventDispatcher;
+use watoki\collections\Map;
+use watoki\collections\Liste;
 
 class EventDispatcherTest extends \PHPUnit_Framework_TestCase {
 
