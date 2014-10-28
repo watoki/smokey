@@ -17,26 +17,34 @@ class EventDispatcher {
     }
 
     /**
-     * @param string $className
-     * @param \callable $listener
+     * @param string $eventClass
+     * @param callable $listener
      */
-    public function addListener($className, $listener) {
-        if (!isset($this->listeners[$className])) {
-            $this->listeners[$className] = array();
+    public function addListener($eventClass, $listener) {
+        if (!isset($this->listeners[$eventClass])) {
+            $this->listeners[$eventClass] = array();
         }
-        $this->listeners[$className][] = $listener;
+        $this->listeners[$eventClass][] = $listener;
     }
 
+    /**
+     * @param object $event
+     * @return Result
+     */
     public function fire($event) {
+        $result = new DirectResult($event);
         foreach ($this->listeners as $className => $listeners) {
             if ($this->isEventMatching($event, $className)) {
                 foreach ($listeners as $listener) {
-                    /** @var $callable \callable */
-                    $callable = $listener;
-                    $callable($event);
+                    try {
+                        $result->addSuccess(call_user_func($listener, $event));
+                    } catch (\Exception $e) {
+                        $result->addException($e);
+                    }
                 }
             }
         }
+        return $result;
     }
 
     private function isEventMatching($event, $className) {
